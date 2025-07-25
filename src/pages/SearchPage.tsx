@@ -16,7 +16,7 @@ export type SearchState = {
     sortOption: string;
 }
 const SearchPage = () => {
-    const {city} = useParams();
+    const {city} = useParams();  
     const [searchState, setSearchState] = useState<SearchState>({
         searchQuery: "",
         page: 1,
@@ -34,7 +34,7 @@ const SearchPage = () => {
             page:1
         }))
     }
-
+    
     const setSelectedCuisines = (selectedCuisines: string[]) => {
         setSearchState((prevState) => ({
             ...prevState,
@@ -67,8 +67,10 @@ const SearchPage = () => {
     }
 
     if(isLoading) {
-        <span>Loading...</span>
+        return <span>Loading...</span>;
     }
+            //AI
+    
 
     if (!results?.data || !city) {
         return <span>Loading...</span>
